@@ -9,7 +9,7 @@ awk -F, 'BEGIN{OFS=","} NR==1{print $0} NR>1{$2=gensub(/\.cif$/, "", "g", $2); p
 由于数据量很大，可以考虑运行small_size_csv.py，得到的小数据集可以直接写入id_prop.csv中覆盖原文件内容（因为id_prop.csv是CGCNN算法指定的标准文件名）。
 
 在运行算法代码之前，一定要下载atom_init.json文件
-最后运行main.py来运行算法训练模型
+最后运行main_1.py来运行算法训练模型
 
 如果运行失败，可以尝试把id_prop.csv和atom_init.json都移入cgcnn文件夹下的cif文件夹当中。
 
@@ -20,3 +20,32 @@ mv part_1/*.cif cif/
 
 在cgcnn文件夹中创建cif文件夹，并且将数据文件夹中的所有的cif文件移入cif文件夹中。
 
+
+English guide:
+
+First, run the CGCNN_1.py file on AWS to generate 'mof_train_77K_100bar_langmuir.csv'. Then run the make_cgcnn_data.py file to generate the cif folder and id_prop.csv (a standard dataset required by the algorithm code).
+
+The second step is to clone the CGCNN algorithm code repository into the EC2 folder using the SSH command: git clone https://github.com/txie-93/cgcnn.git. Then, move the cif folder and id_prop.csv into the cgcnn folder.
+Run cd cgcnn to enter this folder.
+
+Next:
+Use the command
+
+awk -F, 'BEGIN{OFS=","} NR==1{print $0} NR>1{$2=gensub(/\.cif$/, "", "g", $2); print $0}' id_prop.csv > id_prop_noext.csv
+
+Remove the .cif prefix from the file names in the cif_path column of the second column of the dataset id_prop.csv to generate the id_prop_noext.csv file.
+
+Since the data size is large, you can consider running small_size_csv.py. The resulting small dataset can be directly written to id_prop.csv, overwriting the original file contents (since id_prop.csv is the standard file name specified by the CGCNN algorithm).
+
+Before running the algorithm code, be sure to download the atom_init.json file.
+
+Finally, run main_1.py to run the algorithm and train the model.
+
+If the run fails, try moving both id_prop.csv and atom_init.json to the cif folder within the cgcnn folder.
+
+Notes:
+Utilization code
+mkdir -p cif
+mv part_1/*.cif cif/
+
+Create a cif folder in the cgcnn folder and move all cif files from the data folder into the cif folder.
