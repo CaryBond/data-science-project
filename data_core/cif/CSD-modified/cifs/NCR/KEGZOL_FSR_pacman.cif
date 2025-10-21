@@ -1,0 +1,37 @@
+# DDEC6 charges by PACMAN v1.1 (https://github.com/mtap-research/PACMAN-charge/)
+data_KEGZOL_FSR_pacman
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.20880000
+_cell_length_b   8.20880000
+_cell_length_c   8.20880000
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZnCu(CN)4
+_chemical_formula_sum   'Zn1 Cu1 C4 N4'
+_cell_volume   391.13260997
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_charge
+Zn  Zn1  1  0.25000000  0.25000000  0.25000000  1.0 0.8908420363
+Cu  Cu1  1  0.00000000  0.00000000  0.00000000  1.0 0.0059542572
+C  C1  1  0.09330000  0.09330000  0.09330000  1.0 0.1302421438
+C  C2  1  0.09330000  0.72010000  0.09330000  1.0 0.1302421438
+C  C3  1  0.72010000  0.09330000  0.09330000  1.0 0.1302421438
+C  C4  1  0.09330000  0.09330000  0.72010000  1.0 0.1302421438
+N  N1  1  0.14710000  0.14710000  0.14710000  1.0 -0.3551860293
+N  N2  1  0.14710000  0.55870000  0.14710000  1.0 -0.3536964049
+N  N3  1  0.55870000  0.14710000  0.14710000  1.0 -0.3551860293
+N  N4  1  0.14710000  0.14710000  0.55870000  1.0 -0.3536964049

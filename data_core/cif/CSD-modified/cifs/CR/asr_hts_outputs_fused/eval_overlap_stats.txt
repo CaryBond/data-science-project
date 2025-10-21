@@ -1,0 +1,4 @@
+Pareto overlap (by id): 4 / 150 = 0.027
+Top-50 coverage by shortlist (key=id): 0/50 = 0.000
+Top-100 coverage by shortlist (key=id): 0/100 = 0.000
+Top-150 coverage by shortlist (key=id): 0/150 = 0.000
