@@ -1,0 +1,22 @@
+首先在AWS运行CGCNN_1.py文件生成'mof_train_77K_100bar_langmuir.csv'，然后运行文件make_cgcnn_data.py以生成cif文件夹和id_prop.csv（算法代码需要的标准数据集）。
+第二步是用代码在SSH命令行：git clone https://github.com/txie-93/cgcnn.git 把CGCNN算法的代码仓库克隆到EC2文件夹中，而后把cif文件夹和id_prop.csv移入cgcnn文件夹中。
+cd cgcnn进入此文件夹
+接着：
+用命令
+awk -F, 'BEGIN{OFS=","} NR==1{print $0} NR>1{$2=gensub(/\.cif$/, "", "g", $2); print $0}' id_prop.csv > id_prop_noext.csv
+把数据集id_prop.csv第二列的cif_path列的那些文件名的.cif去掉，生成了id_prop_noext.csv文件。
+
+由于数据量很大，可以考虑运行small_size_csv.py，得到的小数据集可以直接写入id_prop.csv中覆盖原文件内容（因为id_prop.csv是CGCNN算法指定的标准文件名）。
+
+在运行算法代码之前，一定要下载atom_init.json文件
+最后运行main.py来运行算法训练模型
+
+如果运行失败，可以尝试把id_prop.csv和atom_init.json都移入cgcnn文件夹下的cif文件夹当中。
+
+注意事项：
+利用代码 
+mkdir -p cif
+mv part_1/*.cif cif/
+
+在cgcnn文件夹中创建cif文件夹，并且将数据文件夹中的所有的cif文件移入cif文件夹中。
+
